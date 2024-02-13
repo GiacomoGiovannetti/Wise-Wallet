@@ -17,9 +17,7 @@ export const Home = () => {
             economica
           </p>
           <NavLink to='/registration' className='mt-8 z-10'>
-            <button className='text-lg text-oxfordBlue-100 leading-5 px-12 py-2.5 rounded-3xl bg-lightGreen font-extrabold md:px-16 md:py-4 md:text-2xl md:rounded-full md:mt-6'>
-              Iniziamo
-            </button>
+            <button className='button'>Iniziamo</button>
           </NavLink>
         </div>
         <img

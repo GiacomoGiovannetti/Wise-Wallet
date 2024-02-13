@@ -18,7 +18,7 @@ export const NavBar = () => {
       <div>
         <nav className='flex  items-center mr-5 md:mr-10'>
           <NavLink to='/login' className='mr-5 md:mr-10 flex items-center'>
-            <FaUser className=' md: text-2xl' />
+            <FaUser className=' md:text-2xl' />
             <p className='hidden text-2xl ml-2  md:inline-block '>Accedi</p>
           </NavLink>
           <NavLink to='/registration' className='flex items-center'>
