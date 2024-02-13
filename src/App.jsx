@@ -5,6 +5,7 @@ import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
 import { Footer } from './components/Footer';
 import { Registration } from './pages/Registration';
+import { Login } from './pages/Login';
 
 export const App = () => {
   
@@ -19,6 +20,7 @@ export const App = () => {
           <Routes>
             <Route exact path='/' element={<Home />}></Route>
             <Route path='/registration' element={<Registration />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
           <div className='absolute w-64 h-64 bg-gunMetal-100 rounded-full blur-2xl -left-16 -bottom-20 z-0 md:w-96 md:h-96'></div>
           <Footer/>
