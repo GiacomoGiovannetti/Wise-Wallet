@@ -8,6 +8,8 @@ import { Registration } from './pages/Registration';
 import { Login } from './pages/Login';
 import { ForgotPassword } from './pages/ForgotPassword';
 import { ResetPassword } from './pages/ResetPaswword';
+import { Transactions } from './pages/Transactions';
+import { ExpenseOverview } from './pages/ExpensesOverview';
 
 export const App = () => {
   
@@ -26,6 +28,8 @@ export const App = () => {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="/change-password" element={<ResetPassword />}></Route>
+            <Route path="/transactions" element={<Transactions />}></Route>
+            <Route path="/expenses-overview" element={<ExpenseOverview />}></Route>
           </Routes>
           <div className={`absolute w-64 h-64 bg-gunMetal-100 rounded-full blur-2xl -left-16 -bottom-20 z-0 md:w-96 md:h-96 ${location.pathname === '/' ? '-left-16' : location.pathname === '/registration' || location.pathname==='/login' ? '-right-16' : '' } `} ></div>
           <Footer/>
