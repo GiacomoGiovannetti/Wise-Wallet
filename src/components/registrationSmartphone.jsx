@@ -35,7 +35,7 @@ export const RegistrationSmartphone = () => {
           name='password'
           id='password'
           placeholder='password'></input>
-        <p className='text-xs w-52 mb-2 md:w-96 md:text-base'>
+        <p className='text-xs w-52 mb-2 opacity-80 md:w-96 md:text-base'>
           The password has to contain atleast 8 characters, a capital letter, a
           number and a special characters
         </p>
@@ -53,7 +53,7 @@ export const RegistrationSmartphone = () => {
         className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4 '></input>
       <p>
         Already signed up ?
-        <NavLink to='/login' className='underline cursor-pointer'>
+        <NavLink to='/login' className='ml-1 underline cursor-pointer'>
           Sign in Here!
         </NavLink>
       </p>
