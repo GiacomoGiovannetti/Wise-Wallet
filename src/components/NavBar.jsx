@@ -8,9 +8,14 @@ export const NavBar = () => {
       <div>
         <NavLink
           to='/'
-          className='ml-5 my-3 flex items-center md:ml-10 md:my-6'>
-          <img alt='wallet icon' src={walletIcon} className='h-4 md:h-7'></img>
-          <h3 className=' ml-1 text-xl font-semibold md:ml-2 md:text-3xl'>
+          className='ml-5 my-3 flex items-center md:ml-10 md:my-6'
+        >
+          <img
+            alt='wallet icon'
+            src={walletIcon}
+            className='h-4 md:h-7 lg:h-9 '
+          ></img>
+          <h3 className=' ml-1 text-xl font-semibold md:ml-2 md:text-3xl lg:text-5xl '>
             Wise Wallet
           </h3>
         </NavLink>
@@ -18,12 +23,16 @@ export const NavBar = () => {
       <div>
         <nav className='flex  items-center mr-5 md:mr-10'>
           <NavLink to='/login' className='mr-5 md:mr-10 flex items-center'>
-            <FaUser className=' md:text-2xl' />
-            <p className='hidden text-2xl ml-2  md:inline-block '>Accedi</p>
+            <FaUser className=' md:text-2xl lg:text-3xl' />
+            <p className='hidden text-2xl ml-2  md:inline-block lg:text-3xl'>
+              Accedi
+            </p>
           </NavLink>
           <NavLink to='/registration' className='flex items-center'>
-            <FaUserPlus className='text-xl md:text-3xl' />
-            <p className='hidden text-2xl ml-2  md:inline-block '>Registrati</p>
+            <FaUserPlus className='text-xl md:text-3xl lg:text-4xl' />
+            <p className='hidden text-2xl ml-2  md:inline-block lg:text-3xl'>
+              Registrati
+            </p>
           </NavLink>
         </nav>
       </div>

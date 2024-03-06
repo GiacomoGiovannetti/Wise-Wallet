@@ -24,9 +24,11 @@ input:-webkit-autofill {
     @apply md:w-96;
     @apply md:mb-4;
     @apply md:mt-2;
-    @apply lg:mb-2;
-    @apply lg:mt-1;
-    @apply lg:w-72;
+    @apply lg:mb-8;
+    @apply lg:mt-4;
+    @apply xl:mb-4;
+    @apply xl:mt-2;
+    @apply xl:w-72;
   }
 
   .button {
@@ -48,6 +50,13 @@ input:-webkit-autofill {
     @apply md:text-2xl;
     @apply md:rounded-full;
     @apply md:mt-6;
+    @apply lg:text-4xl;
+    @apply lg:px-24;
+    @apply lg:py-6;
+    @apply lg:mt-10;
+    @apply xl:text-2xl;
+    @apply xl:px-16;
+    @apply xl:py-4;
   }
 }
 

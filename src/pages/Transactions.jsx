@@ -17,9 +17,10 @@ export const Transactions = () => {
     <section className='flex flex-col items-center mt-28 z-10'>
       <h1
         onClick={showForm}
-        className={`button text-4xl px-10 py-3 md:text-6xl md:px-16 md:py-5 lg:text-5xl ${
+        className={`button text-3xl px-10 py-3 md:text-6xl md:px-16 md:py-5 lg:text-5xl ${
           !formActive ? 'block' : 'hidden'
-        }`}>
+        }`}
+      >
         Add Transaction
       </h1>
       <div>
