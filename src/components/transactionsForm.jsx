@@ -10,7 +10,8 @@ export const TransactionsForm = ({ showForm }) => {
         method='post'
         action=''
         onSubmit={preventSubmit}
-        className='flex flex-col items-center z-10 md:text-2xl'>
+        className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl xl:text-2xl'
+      >
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='amount'>Amount:</label>
           <input
@@ -19,7 +20,8 @@ export const TransactionsForm = ({ showForm }) => {
             id='amount'
             placeholder='000.00'
             autoComplete='off'
-            className='form-input md:ml-2'></input>
+            className='form-input md:ml-2'
+          ></input>
         </div>
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='date'>Date:</label>
@@ -27,7 +29,8 @@ export const TransactionsForm = ({ showForm }) => {
             type='date'
             name='date'
             id='date'
-            className='form-input md:ml-2'></input>
+            className='form-input md:ml-2'
+          ></input>
         </div>
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='category'>Category:</label>
@@ -37,7 +40,8 @@ export const TransactionsForm = ({ showForm }) => {
             id='category'
             placeholder='groceries'
             autoComplete='off'
-            className='form-input md:ml-2'></input>
+            className='form-input md:ml-2'
+          ></input>
         </div>
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='Description'>Description:</label>
@@ -46,17 +50,20 @@ export const TransactionsForm = ({ showForm }) => {
             name='description'
             id='description'
             autoComplete='off'
-            className='form-input md:ml-2'></input>
+            className='form-input md:ml-2'
+          ></input>
         </div>
         <input
           type='submit'
           value='Add'
-          className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4 '></input>
+          className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4 '
+        ></input>
       </form>
 
       <p
-        className='underline cursor-pointer self-end md:text-2xl'
-        onClick={() => showForm()}>
+        className='underline cursor-pointer self-end md:text-2xl lg:text-3xl xl:text-2xl'
+        onClick={() => showForm()}
+      >
         Close
       </p>
     </div>

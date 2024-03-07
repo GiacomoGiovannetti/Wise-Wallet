@@ -2,10 +2,10 @@ export const ResetPassword = () => {
   return (
     <section className='flex flex-col items-center z-10 mt-28 md:mt-64 lg:mt-28'>
       <div className='flex flex-col items-center mx-4'>
-        <h1 className='text-3xl font-semibold  mb-2  md:text-6xl'>
+        <h1 className='text-3xl font-semibold  mb-2  md:text-6xl lg:text-8xl xl:text-6xl'>
           Change password
         </h1>
-        <p className='text-center mb-8 mx-4 md:text-xl md:text-center md:w-[65%]'>
+        <p className='text-center mb-8 mx-4 md:text-xl md:text-center md:w-[65%] lg:text-3xl xl:text-xl '>
           The password has to contain atleast 8 characters, a capital letter, a
           number and a special characters
         </p>
@@ -14,7 +14,7 @@ export const ResetPassword = () => {
         name='reset-password'
         method='post'
         action=''
-        className='flex flex-col items-center z-10 md:text-2xl'
+        className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl xl:text-2xl'
       >
         <div className='flex flex-col items-start'>
           <label htmlFor='password'>New Password</label>

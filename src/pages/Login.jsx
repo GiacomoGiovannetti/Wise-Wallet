@@ -3,12 +3,15 @@ import { NavLink } from 'react-router-dom';
 export const Login = () => {
   return (
     <section className='flex flex-col items-center mt-28 md:mt-64 lg:mt-28'>
-      <h1 className='text-4xl font-semibold mb-8 z-10 md:text-6xl'>Login</h1>
+      <h1 className='text-4xl font-semibold mb-16 z-10 md:text-6xl md:mb-32 lg:text-8xl xl:mb-16 xl:text-6xl'>
+        Login
+      </h1>
       <form
         name='login'
         method='post'
         action=''
-        className='flex flex-col items-center z-10 md:text-2xl '>
+        className='flex flex-col items-center justify-center z-10 md:text-2xl lg:text-3xl xl:text-2xl '
+      >
         <div className='flex flex-col items-start'>
           <label htmlFor='email'>Email</label>
           <input
@@ -16,7 +19,8 @@ export const Login = () => {
             name='email'
             id='email'
             placeholder='johndoe@example.com'
-            className='form-input autofill-bg-color'></input>
+            className='form-input autofill-bg-color'
+          ></input>
 
           <label htmlFor='password'>Password</label>
           <input
@@ -24,17 +28,20 @@ export const Login = () => {
             name='password'
             id='password'
             placeholder='password'
-            className='form-input autofill-bg-color'></input>
+            className='form-input autofill-bg-color'
+          ></input>
           <NavLink
             to='/forgot-password'
-            className='underline cursor-pointer text-sm   w-52 mb-2 md:text-lg'>
+            className='underline cursor-pointer text-sm   w-52 mb-2 md:w-96 md:text-lg lg:text-2xl xl:w-72'
+          >
             Password dimenticata ?
           </NavLink>
         </div>
         <input
           type='submit'
           value='Login'
-          className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4'></input>
+          className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4'
+        ></input>
         <p>
           Not yet registered ?
           <NavLink to='/registration' className='ml-1 underline cursor-pointer'>

@@ -5,10 +5,10 @@ export const ForgotPassword = () => {
   return (
     <section className='flex flex-col items-center z-10 mt-28 md:mt-64 lg:mt-28'>
       <div className=' flex flex-col items-center mx-4'>
-        <h1 className='text-3xl font-semibold  mb-2  md:text-6xl'>
+        <h1 className='text-3xl font-semibold  mb-2  md:text-6xl lg:text-8xl xl:text-6xl'>
           Forgot your password?
         </h1>
-        <h5 className='mb-8 mx-4 md:text-xl'>
+        <h5 className='mb-8 mx-4 md:text-xl lg:text-3xl xl:text-xl'>
           Enter your email address e we'll send you the instructions to reset
           it.
         </h5>
@@ -17,7 +17,8 @@ export const ForgotPassword = () => {
         name='forgotten-password'
         method='post'
         action=''
-        className='flex flex-col items-center z-10 md:text-2xl'>
+        className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl xl:text-2xl '
+      >
         <div className='flex flex-col items-start'>
           <label htmlFor='email'>Email</label>
           <input
@@ -25,13 +26,15 @@ export const ForgotPassword = () => {
             name='email'
             id='email'
             placeholder='johndoe@example.com'
-            className='form-input autofill-bg-color'></input>
+            className='form-input autofill-bg-color'
+          ></input>
         </div>
         <NavLink to='/change-password'>
           <input
             type='submit'
             value='Send Instructions'
-            className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4'></input>
+            className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4'
+          ></input>
         </NavLink>
 
         <p>
