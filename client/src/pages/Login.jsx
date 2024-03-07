@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  console.log(email, password);
+
   return (
     <section className='flex flex-col items-center mt-28 md:mt-64 lg:mt-28'>
       <h1 className='text-4xl font-semibold mb-16 z-10 md:text-6xl md:mb-32 lg:text-8xl xl:mb-16 xl:text-6xl'>
@@ -18,6 +24,8 @@ export const Login = () => {
             type='email'
             name='email'
             id='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder='johndoe@example.com'
             className='form-input autofill-bg-color'
           ></input>
@@ -27,6 +35,8 @@ export const Login = () => {
             type='password'
             name='password'
             id='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder='password'
             className='form-input autofill-bg-color'
           ></input>

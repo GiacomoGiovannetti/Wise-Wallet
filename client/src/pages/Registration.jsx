@@ -5,6 +5,12 @@ import { RegistrationSmartphone } from '../components/registrationSmartphone';
 export const Registration = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const detectWidth = () => {
     setWindowWidth(window.innerWidth);
   };

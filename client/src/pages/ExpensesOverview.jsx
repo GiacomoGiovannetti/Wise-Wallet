@@ -5,12 +5,12 @@ import { TransactionsView } from '../components/TransactionsView';
 export const ExpenseOverview = () => {
   return (
     <section className='z-10 flex flex-col items-center '>
-      <div className='self-start ml-2 mt-2 text-lg md:text-2xl lg:3xl xl:text-2xl'>
+      <div className='self-start ml-2 mt-2 text-lg md:text-2xl lg:text-3xl xl:text-2xl '>
         <label htmlFor='select-interval'>Select Interval: </label>
         <select
           name='selectInterval'
           id='select-interval'
-          className='form-input focus:bg-oxfordBlue-100 outline-none ml-2'
+          className='form-input w-28 focus:bg-oxfordBlue-100 outline-none ml-2 mb:w-32 lg:w-40 xl:w-32'
         >
           <option value='30' selected>
             30 gg
