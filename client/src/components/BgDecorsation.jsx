@@ -1,11 +1,7 @@
-import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export const BgDecorations = () => {
   let location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  }, []);
   return (
     <div className='w-full'>
       <div

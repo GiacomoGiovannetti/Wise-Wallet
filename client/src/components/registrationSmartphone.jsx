@@ -1,10 +1,17 @@
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-export const RegistrationSmartphone = () => {
+export const RegistrationSmartphone = ({ formData, setFormData }) => {
+  const { name, surname, email, password, confirmPassword } = formData;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <form
       name='registration'
       method='post'
       action=''
+      onSubmit={handleSubmit}
       className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl'
     >
       <div className='flex flex-col items-start'>
@@ -14,6 +21,13 @@ export const RegistrationSmartphone = () => {
           type='text'
           name='name'
           id='name'
+          value={name}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              name: e.target.value,
+            });
+          }}
           placeholder='John'
         ></input>
         <label htmlFor='surname'>Surname</label>
@@ -22,6 +36,10 @@ export const RegistrationSmartphone = () => {
           type='text'
           name='surname'
           id='surname'
+          value={surname}
+          onChange={(e) => {
+            setFormData({ ...formData, surname: e.target.value });
+          }}
           placeholder='Doe'
         ></input>
         <label htmlFor='email'>Email</label>
@@ -30,6 +48,10 @@ export const RegistrationSmartphone = () => {
           type='email'
           name='email'
           id='email'
+          value={email}
+          onChange={(e) => {
+            setFormData({ ...formData, email: e.target.value });
+          }}
           placeholder='johndoe@example.com'
         ></input>
         <label htmlFor='password'>Password</label>
@@ -38,6 +60,10 @@ export const RegistrationSmartphone = () => {
           type='password'
           name='password'
           id='password'
+          value={password}
+          onChange={(e) => {
+            setFormData({ ...formData, password: e.target.value });
+          }}
           placeholder='password'
         ></input>
         <p className='text-xs w-52 mb-2 opacity-80 md:w-96 md:text-base lg:text-xl'>
@@ -50,6 +76,10 @@ export const RegistrationSmartphone = () => {
           type='password'
           name='confirm-password'
           id='confirm-password'
+          value={confirmPassword}
+          onChange={(e) => {
+            setFormData({ ...formData, confirmPassword: e.target.value });
+          }}
           placeholder='confirm password'
         ></input>
       </div>

@@ -1,12 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-export const RegistrationDesktop = () => {
+export const RegistrationDesktop = ({ formData, setFormData }) => {
+  const { name, surname, email, password, confirmPassword } = formData;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <form
       name='registration'
       method='post'
       action=''
-      className='hidden lg:flex lg:flex-col text-2xl items-center z-10 '>
+      onSubmit={handleSubmit}
+      className='hidden lg:flex lg:flex-col text-2xl items-center z-10 '
+    >
       <div className='flex flex-col items-start md:items-center'>
         <div className='flex flex-row mb-4 '>
           <div className='flex flex-col items-start'>
@@ -16,7 +22,15 @@ export const RegistrationDesktop = () => {
               type='text'
               name='name'
               id='name'
-              placeholder='John'></input>
+              value={name}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  name: e.target.value,
+                });
+              }}
+              placeholder='John'
+            ></input>
           </div>
 
           <div className='flex flex-col items-start ml-24'>
@@ -26,7 +40,12 @@ export const RegistrationDesktop = () => {
               type='text'
               name='surname'
               id='surname'
-              placeholder='Doe'></input>
+              value={surname}
+              onChange={(e) => {
+                setFormData({ ...formData, surname: e.target.value });
+              }}
+              placeholder='Doe'
+            ></input>
           </div>
         </div>
 
@@ -37,7 +56,12 @@ export const RegistrationDesktop = () => {
             type='email'
             name='email'
             id='email'
-            placeholder='johndoe@example.com'></input>
+            value={email}
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+            }}
+            placeholder='johndoe@example.com'
+          ></input>
         </div>
 
         <div className='flex flex-row'>
@@ -48,7 +72,12 @@ export const RegistrationDesktop = () => {
               type='password'
               name='password'
               id='password'
-              placeholder='password'></input>
+              value={password}
+              onChange={(e) => {
+                setFormData({ ...formData, password: e.target.value });
+              }}
+              placeholder='password'
+            ></input>
             <p className='text-sm w-72 mb-4'>
               The password has to contain atleast 8 characters, a capital
               letter, a number and a special characters
@@ -62,14 +91,20 @@ export const RegistrationDesktop = () => {
               type='password'
               name='confirm-password'
               id='confirm-password'
-              placeholder='confirm password'></input>
+              value={confirmPassword}
+              onChange={(e) => {
+                setFormData({ ...formData, confirmPassword: e.target.value });
+              }}
+              placeholder='confirm password'
+            ></input>
           </div>
         </div>
       </div>
       <input
         type='submit'
         value='Register'
-        className='button px-8 lg:mt-3 lg:mb-3 '></input>
+        className='button px-8 lg:mt-3 lg:mb-3 '
+      ></input>
       <p>
         Already signed up ?
         <NavLink to='/login' className='underline cursor-pointer'>

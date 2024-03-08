@@ -5,11 +5,13 @@ import { RegistrationSmartphone } from '../components/registrationSmartphone';
 export const Registration = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const detectWidth = () => {
     setWindowWidth(window.innerWidth);
@@ -28,9 +30,9 @@ export const Registration = () => {
         Registration
       </h1>
       {windowWidth < 1280 ? (
-        <RegistrationSmartphone />
+        <RegistrationSmartphone formData={formData} setFormData={setFormData} />
       ) : (
-        <RegistrationDesktop />
+        <RegistrationDesktop formData={formData} setFormData={setFormData} />
       )}
     </section>
   );

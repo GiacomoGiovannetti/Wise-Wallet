@@ -1,4 +1,15 @@
+import { useState } from 'react';
+
 export const ResetPassword = () => {
+  const [formData, setFormData] = useState({
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <section className='flex flex-col items-center z-10 mt-28 md:mt-64 lg:mt-28'>
       <div className='flex flex-col items-center mx-4'>
@@ -14,6 +25,7 @@ export const ResetPassword = () => {
         name='reset-password'
         method='post'
         action=''
+        onSubmit={handleSubmit}
         className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl xl:text-2xl'
       >
         <div className='flex flex-col items-start'>
@@ -22,6 +34,10 @@ export const ResetPassword = () => {
             type='password'
             name='password'
             id='password'
+            value={formData.password}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
             placeholder='password'
             className='form-input autofill-bg-color'
           ></input>
@@ -30,6 +46,10 @@ export const ResetPassword = () => {
             type='password'
             name='confirmPassword'
             id='confirm-password'
+            value={formData.confirmPassword}
+            onChange={(e) => {
+              setFormData({ ...formData, confirmPassword: e.target.value });
+            }}
             placeholder='confirm password'
             className='form-input autofill-bg-color'
           ></input>

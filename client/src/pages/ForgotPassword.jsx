@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export const ForgotPassword = () => {
   //valuta opzione di una page solo per invio email e cambio password creando due component per i form e sfruttando il conditional rendering
+
+  const [email, setEmail] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <section className='flex flex-col items-center z-10 mt-28 md:mt-64 lg:mt-28'>
       <div className=' flex flex-col items-center mx-4'>
@@ -17,6 +24,7 @@ export const ForgotPassword = () => {
         name='forgotten-password'
         method='post'
         action=''
+        onSubmit={handleSubmit}
         className='flex flex-col items-center z-10 md:text-2xl lg:text-3xl xl:text-2xl '
       >
         <div className='flex flex-col items-start'>
@@ -25,6 +33,10 @@ export const ForgotPassword = () => {
             type='email'
             name='email'
             id='email'
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             placeholder='johndoe@example.com'
             className='form-input autofill-bg-color'
           ></input>

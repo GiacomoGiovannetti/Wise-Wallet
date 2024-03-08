@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
-  console.log(email, password);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <section className='flex flex-col items-center mt-28 md:mt-64 lg:mt-28'>
@@ -16,6 +20,7 @@ export const Login = () => {
         name='login'
         method='post'
         action=''
+        onSubmit={handleSubmit}
         className='flex flex-col items-center justify-center z-10 md:text-2xl lg:text-3xl xl:text-2xl '
       >
         <div className='flex flex-col items-start'>
@@ -24,8 +29,10 @@ export const Login = () => {
             type='email'
             name='email'
             id='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             placeholder='johndoe@example.com'
             className='form-input autofill-bg-color'
           ></input>
@@ -35,8 +42,10 @@ export const Login = () => {
             type='password'
             name='password'
             id='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             placeholder='password'
             className='form-input autofill-bg-color'
           ></input>
