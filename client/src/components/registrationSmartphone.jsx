@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSignup } from '../hooks/useSignup';
 export const RegistrationSmartphone = ({ formData, setFormData }) => {
   const { name, surname, email, password, confirmPassword } = formData;
-  const handleSubmit = (e) => {
+  const { signup, error, isLoading } = useSignup();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await signup(name, surname, email, password, confirmPassword);
   };
 
   return (
@@ -86,6 +90,7 @@ export const RegistrationSmartphone = ({ formData, setFormData }) => {
       <input
         type='submit'
         value='Register'
+        disabled={isLoading}
         className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4 '
       ></input>
       <p>
@@ -94,6 +99,8 @@ export const RegistrationSmartphone = ({ formData, setFormData }) => {
           Sign in Here!
         </NavLink>
       </p>
+
+      {error && <div className='bg-red-300'>{error}</div>}
     </form>
   );
 };

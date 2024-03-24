@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLogin } from '../hooks/useLogin';
 
 export const Login = () => {
   const [formData, setFormData] = useState({
@@ -7,8 +8,12 @@ export const Login = () => {
     password: '',
   });
 
-  const handleSubmit = (e) => {
+  const { login, error, isLoading } = useLogin();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await login(formData.email, formData.password);
   };
 
   return (
@@ -59,6 +64,7 @@ export const Login = () => {
         <input
           type='submit'
           value='Login'
+          disabled={isLoading}
           className='button px-8 mt-4 mb-2 md:mt-8 md:mb-4'
         ></input>
         <p>
@@ -68,6 +74,7 @@ export const Login = () => {
           </NavLink>
         </p>
       </form>
+      {error && <div className='bg-red-300'>{error}</div>}
     </section>
   );
 };
