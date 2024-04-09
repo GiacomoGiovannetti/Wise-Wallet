@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authentication } from '../redux/slices/authSlice';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
@@ -9,6 +10,8 @@ export const useSignup = () => {
 
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const signup = async (name, surname, email, password, confirmPassword) => {
     try {
@@ -30,6 +33,9 @@ export const useSignup = () => {
 
       //update auth state
       dispatch(authentication({ type: 'LOGIN', content: data }));
+
+      //redirect after registrer
+      navigate('/transactions');
 
       setIsLoading(false);
     } catch (error) {
