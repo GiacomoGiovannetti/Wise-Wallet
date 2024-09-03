@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Footer } from './components/Footer';
 import { Registration } from './pages/Registration';
 import { Login } from './pages/Login';
+import { Profile } from './pages/Profile';
 import { ForgotPassword } from './pages/ForgotPassword';
 import { ResetPassword } from './pages/ResetPaswword';
 import { Transactions } from './pages/Transactions';
@@ -28,6 +29,7 @@ export const App = () => {
             <Route exact path='/' element={<Home />}></Route>
             <Route path='/registration' element={<Registration />}></Route>
             <Route path='/login' element={<Login />}></Route>
+            <Route path='/profile' element={<Profile />}></Route>
             <Route path='/forgot-password' element={<ForgotPassword />}></Route>
             <Route path='/change-password' element={<ResetPassword />}></Route>
             <Route path='/transactions' element={<Transactions />}></Route>
