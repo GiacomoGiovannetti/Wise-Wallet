@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:-webkit-autofill {
+  @apply text-slate-50;
+}
+
+@layer components {
+  .form-input {
+    @apply w-52;
+    @apply mb-2;
+    @apply outline-none;
+    @apply bg-transparent;
+    @apply border-b-2;
+    @apply border-uranianBlue-200;
+    @apply focus:border-b-uranianBlue-50;
+    @apply transition-colors;
+    @apply duration-150;
+    @apply ease-in;
+    @apply placeholder:text-uranianBlue-100;
+    @apply placeholder:opacity-50;
+    @apply md:w-96;
+    @apply md:mb-4;
+    @apply md:mt-2;
+    @apply lg:mb-8;
+    @apply lg:mt-4;
+    @apply xl:mb-4;
+    @apply xl:mt-2;
+    @apply xl:w-72;
+  }
+
+  .button {
+    @apply text-lg;
+    @apply text-oxfordBlue-100;
+    @apply leading-5;
+    @apply px-12;
+    @apply py-2.5;
+    @apply rounded-3xl;
+    @apply bg-lightGreen;
+    @apply font-extrabold;
+    @apply cursor-pointer;
+    @apply hover:scale-105;
+    @apply transition-transform;
+    @apply duration-150;
+    @apply ease-in;
+    @apply md:px-16;
+    @apply md:py-4;
+    @apply md:text-2xl;
+    @apply md:rounded-full;
+    @apply md:mt-6;
+    @apply lg:text-4xl;
+    @apply lg:px-24;
+    @apply lg:py-6;
+    @apply lg:mt-10;
+    @apply xl:text-2xl;
+    @apply xl:px-16;
+    @apply xl:py-4;
+  }
+}
+
+@layer utilities {
+  .autofill-bg-color {
+    @apply autofill:shadow-[inset_0_0_0px_1000px_rgb(162,214,249)];
+  }
+}
