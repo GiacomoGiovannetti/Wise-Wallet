@@ -14,6 +14,8 @@ export const TransactionsForm = ({ showForm }) => {
     e.preventDefault();
   };
 
+  // utilizzare date-picker library /> little-date
+
   return (
     <div className='flex flex-col items-center drop-shadow-xl'>
       <form
@@ -40,8 +42,7 @@ export const TransactionsForm = ({ showForm }) => {
         </div>
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='date'>Date:</label>
-          <input                  
-          {/* utilizzare date-picker library /> little-date*/}
+          <input
             type='date'
             name='date'
             id='date'

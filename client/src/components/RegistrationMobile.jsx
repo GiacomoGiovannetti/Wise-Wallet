@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useSignup } from '../hooks/useSignup';
-export const RegistrationSmartphone = ({ formData, setFormData }) => {
+export const RegistrationMobile = ({ formData, setFormData }) => {
   const { name, surname, email, password, confirmPassword } = formData;
   const { signup, error, isLoading } = useSignup();
 

@@ -11,10 +11,16 @@ import { ForgotPassword } from './pages/ForgotPassword';
 import { ResetPassword } from './pages/ResetPaswword';
 import { Transactions } from './pages/Transactions';
 import { ExpenseOverview } from './pages/ExpensesOverview';
-import { BgDecorations } from './components/BgDecorsation';
+import { BgDecorations } from './components/BgDecoration';
+import ComponentsShowCase from './pages/ComponentsShowCase';
 
 export const App = () => {
   //dper muovere le palle devo fare una cosa come per la nav bar basata sul pathname che lo checka e in base a quello assegna la posizione
+
+  const showShowcase = import.meta.env.VITE_SHOWCASE;
+
+  console.log(showShowcase);
+
   return (
     <div>
       <Router>
@@ -26,6 +32,9 @@ export const App = () => {
           <NavBar />
           <BgDecorations />
           <Routes>
+            {showShowcase && (
+              <Route path='/components' element={<ComponentsShowCase />} />
+            )}
             <Route exact path='/' element={<Home />}></Route>
             <Route path='/registration' element={<Registration />}></Route>
             <Route path='/login' element={<Login />}></Route>
