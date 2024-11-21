@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-export const TransactionsForm = ({ showForm }) => {
+interface Props {
+  showForm?: () => void;
+}
+
+const TransactionsForm = ({ showForm = () => {} }: Props) => {
   const [formData, setFormData] = useState({
     amount: '',
     date: '',
@@ -13,8 +17,6 @@ export const TransactionsForm = ({ showForm }) => {
   const preventSubmit = (e) => {
     e.preventDefault();
   };
-
-  // utilizzare date-picker library /> little-date
 
   return (
     <div className='flex flex-col items-center drop-shadow-xl'>
@@ -31,7 +33,7 @@ export const TransactionsForm = ({ showForm }) => {
             type='number'
             name='amount'
             id='amount'
-            value={formData.value}
+            value={formData.amount}
             onChange={(e) => {
               setFormData({ ...formData, amount: e.target.value });
             }}
@@ -96,3 +98,5 @@ export const TransactionsForm = ({ showForm }) => {
     </div>
   );
 };
+
+export default TransactionsForm;

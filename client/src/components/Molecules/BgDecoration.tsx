@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 export const BgDecorations = () => {
-  let location = useLocation();
+  const location = useLocation();
   return (
     <div
       className={`w-full ${

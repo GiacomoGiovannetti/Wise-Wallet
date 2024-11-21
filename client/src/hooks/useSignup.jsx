@@ -1,12 +1,12 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { authentication } from '../redux/slices/authSlice';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { authentication } from '../redux/slices/authSlice';
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();

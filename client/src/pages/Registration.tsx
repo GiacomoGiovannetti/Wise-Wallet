@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { RegistrationDesktop } from '../components/registrationDesktop';
-import { RegistrationMobile } from '../components/RegistrationMobile';
+import {
+  RegistrationDesktop,
+  RegistrationMobile,
+} from '../components/Organisms';
 
 export const Registration = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -1,14 +1,18 @@
-import walletIcon from '../assets/wallet.svg';
-import { NavLink } from 'react-router-dom';
-import { FaUser, FaUserPlus, FaUserXmark } from 'react-icons/fa6';
-import { useLogout } from '../hooks/useLogout';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { authentication } from '../redux/slices/authSlice';
+import { FaUser, FaUserPlus, FaUserXmark } from 'react-icons/fa6';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import walletIcon from '../../assets/wallet.svg';
+import { useLogout } from '../../hooks/useLogout';
+import { authentication } from '../../redux/slices/authSlice';
 
-export const NavBar = () => {
+interface Props {
+  className?: string;
+}
+
+export const NavBar = ({ className }: Props) => {
   const { logout } = useLogout();
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
 
   const { user } = auth;
@@ -19,7 +23,7 @@ export const NavBar = () => {
 
   //valuta se metterlo in app/homepage component
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user') || '');
     console.log(user);
     if (user) {
       dispatch(authentication({ type: 'LOGIN', content: user }));
@@ -27,7 +31,9 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <header className='sticky top-0 h-auto flex items-center justify-between bg-oxfordBlue-100 drop-shadow-xl z-10 '>
+    <header
+      className={`sticky top-0 h-auto flex items-center justify-between bg-oxfordBlue-100 drop-shadow-xl z-10 ${className}`}
+    >
       <div>
         <NavLink
           to='/'

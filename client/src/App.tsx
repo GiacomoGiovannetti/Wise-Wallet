@@ -1,18 +1,15 @@
-import React from 'react';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { NavBar } from './components/NavBar';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BgDecorations, Footer } from './components/Molecules';
+import { NavBar } from './components/Organisms/NavBar';
+import ComponentsShowCase from './pages/ComponentsShowCase';
+import { ExpenseOverview } from './pages/ExpensesOverview';
+import { ForgotPassword } from './pages/ForgotPassword';
 import { Home } from './pages/Home';
-import { Footer } from './components/Footer';
-import { Registration } from './pages/Registration';
 import { Login } from './pages/Login';
 import { Profile } from './pages/Profile';
-import { ForgotPassword } from './pages/ForgotPassword';
+import { Registration } from './pages/Registration';
 import { ResetPassword } from './pages/ResetPaswword';
 import { Transactions } from './pages/Transactions';
-import { ExpenseOverview } from './pages/ExpensesOverview';
-import { BgDecorations } from './components/BgDecoration';
-import ComponentsShowCase from './pages/ComponentsShowCase';
 
 export const App = () => {
   //dper muovere le palle devo fare una cosa come per la nav bar basata sul pathname che lo checka e in base a quello assegna la posizione
@@ -35,7 +32,7 @@ export const App = () => {
             {showShowcase && (
               <Route path='/components' element={<ComponentsShowCase />} />
             )}
-            <Route exact path='/' element={<Home />}></Route>
+            <Route path='/' element={<Home />}></Route>
             <Route path='/registration' element={<Registration />}></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/profile' element={<Profile />}></Route>
