@@ -17,7 +17,18 @@ module.exports = {
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      {
+        allowConstantExport: true,
+      },
     ],
+    '@typescript-eslint/no-unused-expressions': [
+      'warn',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': ['warn'],
   },
 };
