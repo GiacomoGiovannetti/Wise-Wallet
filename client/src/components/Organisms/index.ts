@@ -1,10 +1,13 @@
-import { RegistrationDesktop, RegistrationMobile } from './Registration';
+import {
+  RegistrationDesktop as RegistrationFormDesktop,
+  RegistrationMobile as RegistrationFormMobile,
+} from './RegistrationForm';
 import TransactionsForm from './TransactionsForm';
 import { TransactionsView } from './TransactionsView';
 
 export {
-  RegistrationDesktop,
-  RegistrationMobile,
+  RegistrationFormDesktop,
+  RegistrationFormMobile,
   TransactionsForm,
   TransactionsView,
 };

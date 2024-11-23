@@ -10,7 +10,7 @@ export const Login = () => {
 
   const { login, error, isLoading } = useLogin();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     await login(formData.email, formData.password);

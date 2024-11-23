@@ -11,7 +11,7 @@ export const RegistrationDesktop = ({ formData, setFormData }: Props) => {
   const { name, surname, email, password, confirmPassword } = formData;
   const { signup, error, isLoading } = useSignup();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     await signup(name, surname, email, password, confirmPassword);
@@ -133,7 +133,7 @@ export const RegistrationMobile = ({ formData, setFormData }: Props) => {
   const { name, surname, email, password, confirmPassword } = formData;
   const { signup, error, isLoading } = useSignup();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     await signup(name, surname, email, password, confirmPassword);

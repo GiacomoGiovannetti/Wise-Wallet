@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
-  RegistrationDesktop,
-  RegistrationMobile,
+  RegistrationFormDesktop,
+  RegistrationFormMobile,
 } from '../components/Organisms';
 
 export const Registration = () => {
@@ -32,9 +32,12 @@ export const Registration = () => {
         Registration
       </h1>
       {windowWidth < 1280 ? (
-        <RegistrationMobile formData={formData} setFormData={setFormData} />
+        <RegistrationFormMobile formData={formData} setFormData={setFormData} />
       ) : (
-        <RegistrationDesktop formData={formData} setFormData={setFormData} />
+        <RegistrationFormDesktop
+          formData={formData}
+          setFormData={setFormData}
+        />
       )}
     </section>
   );

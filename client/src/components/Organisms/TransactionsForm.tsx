@@ -14,7 +14,7 @@ const TransactionsForm = ({ showForm = () => {} }: Props) => {
 
   console.log(formData);
 
-  const preventSubmit = (e) => {
+  const preventSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

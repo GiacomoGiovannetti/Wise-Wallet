@@ -5,7 +5,7 @@ export const ForgotPassword = () => {
   //valuta opzione di una page solo per invio email e cambio password creando due component per i form e sfruttando il conditional rendering
 
   const [email, setEmail] = useState('');
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
@@ -16,8 +16,8 @@ export const ForgotPassword = () => {
           Forgot your password?
         </h1>
         <h5 className='mb-8 mx-4 md:text-xl lg:text-3xl xl:text-xl'>
-          Enter your email address e we'll send you the instructions to reset
-          it.
+          {`          Enter your email address e we'll send you the instructions to reset
+          it.`}
         </h5>
       </div>
       <form
