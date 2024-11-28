@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { BalanceChart } from '../components/BalanceChart';
-import { CategoryChart } from '../components/CategoryChart';
-import { TransactionsView } from '../components/TransactionsView';
+import Button from '../components/Atoms/Button';
+import { TransactionsView } from '../components/Organisms';
 
 export const ExpenseOverview = () => {
   const [expenseInterval, setExpenseInterval] = useState(30);
@@ -30,8 +29,8 @@ export const ExpenseOverview = () => {
         1206.36
       </h1>
       <div className='flex flex-col items-center'>
-        <BalanceChart />
-        <CategoryChart />
+        <Button label='Balance chart' className='mb-5' />
+        <Button label='Category chart' />
       </div>
       <TransactionsView />
     </section>

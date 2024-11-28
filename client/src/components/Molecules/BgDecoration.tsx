@@ -1,9 +1,13 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 export const BgDecorations = () => {
-  let location = useLocation();
+  const location = useLocation();
   return (
-    <div className='w-full'>
+    <div
+      className={`w-full ${
+        location.pathname === '/components' ? 'hidden' : ''
+      }`}
+    >
       <div
         className={`absolute size-64 bg-gunMetal-100 rounded-full blur-2xl -top-8 z-0 md:size-96  lg:-top-36 lg:size-[36rem]
                     ${

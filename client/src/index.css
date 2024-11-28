@@ -64,4 +64,13 @@ input:-webkit-autofill {
   .autofill-bg-color {
     @apply autofill:shadow-[inset_0_0_0px_1000px_rgb(162,214,249)];
   }
+
+  .containerShowcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    @apply bg-oxfordBlue-100;
+  }
 }

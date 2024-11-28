@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-export const TransactionsForm = ({ showForm }) => {
+interface Props {
+  showForm?: () => void;
+}
+
+const TransactionsForm = ({ showForm = () => {} }: Props) => {
   const [formData, setFormData] = useState({
     amount: '',
     date: '',
@@ -10,7 +14,7 @@ export const TransactionsForm = ({ showForm }) => {
 
   console.log(formData);
 
-  const preventSubmit = (e) => {
+  const preventSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
@@ -29,7 +33,7 @@ export const TransactionsForm = ({ showForm }) => {
             type='number'
             name='amount'
             id='amount'
-            value={formData.value}
+            value={formData.amount}
             onChange={(e) => {
               setFormData({ ...formData, amount: e.target.value });
             }}
@@ -40,8 +44,7 @@ export const TransactionsForm = ({ showForm }) => {
         </div>
         <div className=' flex flex-col  items-start md:flex-row md:items-center'>
           <label htmlFor='date'>Date:</label>
-          <input                  
-          {/* utilizzare date-picker library /> little-date*/}
+          <input
             type='date'
             name='date'
             id='date'
@@ -95,3 +98,5 @@ export const TransactionsForm = ({ showForm }) => {
     </div>
   );
 };
+
+export default TransactionsForm;

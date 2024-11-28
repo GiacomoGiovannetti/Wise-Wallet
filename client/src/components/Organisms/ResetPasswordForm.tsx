@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-export const ResetPassword = () => {
+export default function ResetPasswordForm() {
   const [formData, setFormData] = useState({
     password: '',
     confirmPassword: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
@@ -62,4 +62,4 @@ export const ResetPassword = () => {
       </form>
     </section>
   );
-};
+}

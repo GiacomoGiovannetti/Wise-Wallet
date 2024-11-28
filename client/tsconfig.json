@@ -18,7 +18,13 @@
     "declarationMap": true,
     "isolatedModules": true,
     "target": "es2020",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    // "noImplicitAny": false,
+    "allowUnusedLabels": true,
+    "allowSyntheticDefaultImports": true,
+    // "noUnusedParameters": false,
+    "types": ["vite/client"],
+    "strict": true
   },
   "watchOptions": {
     // Use native file system events for files and directories

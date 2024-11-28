@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { TransactionsView } from '../components/TransactionsView';
-import { TransactionsForm } from '../components/transactionsForm';
+import { TransactionsForm, TransactionsView } from '../components/Organisms';
 
 export const Transactions = () => {
   const [formActive, setFormActive] = useState(false);
 
-  const showForm = (e) => {
+  const showForm = () => {
     setFormActive((prev) => !prev);
   };
 
@@ -25,7 +24,8 @@ export const Transactions = () => {
       )}
       <div>
         {formActive && (
-          <TransactionsForm setFormActive={setFormActive} showForm={showForm} />
+          <TransactionsForm showForm={showForm} />
+          // <TransactionsForm setFormActive={setFormActive} showForm={showForm} />
         )}
       </div>
       <TransactionsView />

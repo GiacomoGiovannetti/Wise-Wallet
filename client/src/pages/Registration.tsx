@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { RegistrationDesktop } from '../components/registrationDesktop';
-import { RegistrationSmartphone } from '../components/registrationSmartphone';
+import {
+  RegistrationFormDesktop,
+  RegistrationFormMobile,
+} from '../components/Organisms';
 
 export const Registration = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -30,9 +32,12 @@ export const Registration = () => {
         Registration
       </h1>
       {windowWidth < 1280 ? (
-        <RegistrationSmartphone formData={formData} setFormData={setFormData} />
+        <RegistrationFormMobile formData={formData} setFormData={setFormData} />
       ) : (
-        <RegistrationDesktop formData={formData} setFormData={setFormData} />
+        <RegistrationFormDesktop
+          formData={formData}
+          setFormData={setFormData}
+        />
       )}
     </section>
   );

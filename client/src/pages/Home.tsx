@@ -1,5 +1,5 @@
+import { NavLink } from 'react-router';
 import homeImage from '../assets/home-image.png';
-import { NavLink } from 'react-router-dom';
 
 export const Home = () => {
   return (

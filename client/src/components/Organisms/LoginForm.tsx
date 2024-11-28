@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useLogin } from '../hooks/useLogin';
-
-export const Login = () => {
+import { NavLink } from 'react-router';
+import { useLogin } from '../../hooks/useLogin';
+export default function LoginForm() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -10,7 +9,7 @@ export const Login = () => {
 
   const { login, error, isLoading } = useLogin();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     await login(formData.email, formData.password);
@@ -77,4 +76,4 @@ export const Login = () => {
       {error && <div className='bg-red-300'>{error}</div>}
     </section>
   );
-};
+}
