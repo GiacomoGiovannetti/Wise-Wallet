@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import { useSignup } from '../../hooks/useSignup';
 import { RegistrationFormData } from '../../utils/types';
 

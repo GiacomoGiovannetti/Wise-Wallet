@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { FaUser, FaUserPlus, FaUserXmark } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import walletIcon from '../../assets/wallet.svg';
 import { useLogout } from '../../hooks/useLogout';
 import { authentication } from '../../redux/slices/authSlice';

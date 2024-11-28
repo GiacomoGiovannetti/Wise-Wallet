@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router';
 import { BgDecorations, Footer } from './components/Molecules';
 import { NavBar } from './components/Organisms/NavBar';
 import ComponentsShowCase from './pages/ComponentsShowCase';
