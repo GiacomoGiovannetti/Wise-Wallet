@@ -5,11 +5,7 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  surname: {
+  username: {
     type: String,
     required: true,
   },
@@ -22,22 +18,32 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 //static signup method
 userSchema.statics.signup = async function (
-  name: string,
-  surname: string,
+  username: string,
   email: string,
   password: string,
   confirmPassword: string
 ) {
   //validation
-  if (!name || !surname || !email || !password || !confirmPassword) {
+  if (!username || !email || !password || !confirmPassword) {
     throw new Error('All fields must be filled');
   }
-  if (!validator.isAlpha(name) || !validator.isAlpha(surname)) {
-    throw new Error('Name and Surname can contain only letters');
+  if (
+    !validator.matches(
+      username,
+      /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$]+$/
+    )
+  ) {
+    throw new Error(
+      'Username can contain only letters, numbers and special characters'
+    );
   }
   if (!validator.isEmail(email)) {
     throw new Error('Email is not valid');
@@ -49,6 +55,12 @@ userSchema.statics.signup = async function (
     throw new Error('Passwords do not match');
   }
 
+  const userExists = await this.findOne({ username });
+
+  if (userExists) {
+    throw new Error('this username is already in use');
+  }
+
   const emailExists = await this.findOne({ email });
 
   if (emailExists) {
@@ -58,7 +70,7 @@ userSchema.statics.signup = async function (
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await this.create({ name, surname, email, password: hash });
+  const user = await this.create({ username, email, password: hash });
   return user;
 };
 
