@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const dotenv = require('dotenv');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
@@ -13,7 +13,7 @@ const envVars = {
 };
 
 const dbURI = `mongodb+srv://${envVars.user}:${envVars.password}@${envVars.cluster}.${envVars.dbName}/?retryWrites=true&w=majority&appName=WiseWallet`;
-let mockDb = null;
+let mockDb: any = null;
 
 //connection to database via URI
 const dbConnection = async () => {
@@ -48,7 +48,7 @@ db.once('connected', () => {
   console.log('Connection to db completed');
 });
 
-db.on('error', (err) => {
+db.on('error', (err: any) => {
   console.error('Failed to connect to db - Server is not listening: ', err);
 });
 
