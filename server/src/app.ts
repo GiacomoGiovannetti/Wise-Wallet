@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { transactionRouter } from './routes/transaction';
 
 const express = require('express');
 const helmet = require('helmet');
@@ -27,8 +28,9 @@ const logger = (req: Request, res: Response, next: NextFunction) => {
 app.use(logger);
 
 //routes
-app.use('/api/user', userRouter);
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Welcome to wise wallet' });
 });
+app.use('/api/user', userRouter);
+app.use('/api/transaction', transactionRouter);
 module.exports = app;
