@@ -1,7 +1,5 @@
-import mongoose, { ObjectId } from 'mongoose';
+import mongoose, { ObjectId, Schema } from 'mongoose';
 const validator = require('validator');
-
-const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
   userId: {
@@ -112,6 +110,7 @@ transactionSchema.statics.modifyTransaction = async function (
       amount: amount,
       description: description,
       date: date,
+      categoryId: categoryId,
       updatedAt: new Date(),
     },
   });
@@ -120,6 +119,7 @@ transactionSchema.statics.modifyTransaction = async function (
   return { transaction, updatedTransaction };
 };
 
+//static function to delete a transaction
 transactionSchema.statics.deleteTransaction = async function (id: ObjectId) {
   //validator
   if (!id) {
@@ -131,7 +131,10 @@ transactionSchema.statics.deleteTransaction = async function (id: ObjectId) {
   return deletedTransaction;
 };
 
-transactionSchema.statics.getAllTransactions = async function (userId: string) {
+//static function to get all the transacitons
+transactionSchema.statics.getAllTransactions = async function (
+  userId: ObjectId
+) {
   //validator
   if (!userId) {
     throw new Error('userId not provided');

@@ -7,3 +7,9 @@ export type TransactionRequestType = {
   userId: string;
   categoryId: string;
 };
+
+export type CategoryRequestType = {
+  id: string;
+  name: string;
+  userId: string;
+};

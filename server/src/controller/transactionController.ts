@@ -1,4 +1,3 @@
-import { error } from 'console';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { TransactionRequestType } from '../types';
@@ -35,7 +34,7 @@ export const createTransaction = async (
       },
     });
   } catch (err: any) {
-    console.error(error);
+    console.error(err);
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       message: err.message,
     });
@@ -137,7 +136,6 @@ export const deleteTransaction = async (req: Request, res: Response) => {
 export const getAllTransactions = async (req: Request, res: Response) => {
   try {
     const { userId } = req.query;
-    console.log(userId, req.query);
     const transactions = await Transaction.getAllTransactions(userId);
     if (transactions.length <= 0) {
       res

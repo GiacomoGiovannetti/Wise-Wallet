@@ -1,4 +1,4 @@
-import express from 'express';
+import { Router } from 'express';
 import {
   createTransaction,
   deleteTransaction,
@@ -6,7 +6,7 @@ import {
   modifyTransaction,
 } from '../controller/transactionController';
 
-const router = express.Router();
+const router = Router();
 
 //create trnasaction
 router.post('/create', createTransaction);
