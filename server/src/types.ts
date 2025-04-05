@@ -13,3 +13,11 @@ export type CategoryRequestType = {
   name: string;
   userId: string;
 };
+
+export type BudgetAccountRequestType = {
+  id: string;
+  userId: string;
+  name: string;
+  description?: string;
+  currency?: string;
+};

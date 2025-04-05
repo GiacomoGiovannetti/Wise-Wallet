@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { budgetAccountRouter } from './routes/budgetAccount';
 import { categoryRouter } from './routes/category';
 import { transactionRouter } from './routes/transaction';
 
@@ -35,4 +36,5 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/user', userRouter);
 app.use('/api/transaction', transactionRouter);
 app.use('/api/category', categoryRouter);
+app.use('/api/budgetAccount', budgetAccountRouter);
 module.exports = app;

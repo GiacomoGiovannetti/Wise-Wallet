@@ -140,9 +140,9 @@ transactionSchema.statics.getAllTransactions = async function (
     throw new Error('userId not provided');
   }
 
-  const transactions = await this.find({ userId: userId });
-  // .populate('categoryId', '_id name')
-  // .populate('userId', '_id username');
+  const transactions = await this.find({ userId: userId })
+    .populate('categoryId', '_id name')
+    .populate('userId', '_id username');
 
   return transactions;
 };

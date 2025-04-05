@@ -61,7 +61,9 @@ categorySchema.statics.modifyCategory = async function (
     throw new Error('name can only contain alphanumeric values');
   }
 
-  const category = await this.findByIdAndUpdate(id, { $set: { name: name } });
+  const category = await this.findByIdAndUpdate(id, {
+    $set: { name: name, updatedAt: new Date() },
+  });
 
   const updatedCategory = await this.findById(id);
   return { category, updatedCategory };
@@ -98,11 +100,10 @@ categorySchema.statics.getAllCategories = async function (userId: ObjectId) {
     throw new Error('userId not provided');
   }
 
-  const categories = await this.find({ userId: userId });
-  //   .populate(
-  //     'userId',
-  //     '_id username'
-  //   );
+  const categories = await this.find({ userId: userId }).populate(
+    'userId',
+    '_id username'
+  );
 
   return categories;
 };
