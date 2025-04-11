@@ -132,6 +132,38 @@ export const deleteTransaction = async (req: Request, res: Response) => {
   }
 };
 
+//controller to get a transaction from the db and send it to the client
+export const getTransaction = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const transaction = await Transaction.getTransaction(id);
+    if (transaction) {
+      res.status(StatusCodes.OK).json({
+        transaction: {
+          _id: transaction._id,
+          transactionType: transaction.transactionType,
+          amount: transaction.amount,
+          description: transaction.description,
+          date: transaction.date,
+          userId: transaction.userId,
+          categoryId: transaction.categoryId,
+          createdAt: transaction.createdAt,
+          updatedAt: transaction.updatedAt,
+        },
+      });
+    } else {
+      res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ message: 'No valid resource for specified ID' });
+    }
+  } catch (err: any) {
+    console.error(err);
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: err.message });
+  }
+};
+
 // controller to get all the transactions of a use from the db and send them to the client
 export const getAllTransactions = async (req: Request, res: Response) => {
   try {

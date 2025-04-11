@@ -114,7 +114,10 @@ budgetAccountSchema.statics.getBudgetAccount = async function (id: ObjectId) {
     throw new Error('budgetAccountId not provided');
   }
 
-  const budgetAccount = await this.findById(id);
+  const budgetAccount = await this.findById(id).populate(
+    'userId',
+    '_id username'
+  );
 
   return budgetAccount;
 };

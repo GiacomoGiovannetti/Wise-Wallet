@@ -131,6 +131,20 @@ transactionSchema.statics.deleteTransaction = async function (id: ObjectId) {
   return deletedTransaction;
 };
 
+//static function to get a single transaction
+transactionSchema.statics.getTransaction = async function (id: ObjectId) {
+  //validator
+  if (!id) {
+    throw new Error('transactionId not provided');
+  }
+
+  const transaction = await this.findById(id)
+    .populate('categoryId', '_id name')
+    .populate('userId', '_id username');
+
+  return transaction;
+};
+
 //static function to get all the transacitons
 transactionSchema.statics.getAllTransactions = async function (
   userId: ObjectId

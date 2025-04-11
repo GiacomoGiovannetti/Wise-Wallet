@@ -3,6 +3,7 @@ import {
   createTransaction,
   deleteTransaction,
   getAllTransactions,
+  getTransaction,
   modifyTransaction,
 } from '../controller/transactionController';
 
@@ -16,6 +17,9 @@ router.patch('/update/:id', modifyTransaction);
 
 //delete transaction
 router.delete('/delete/:id', deleteTransaction);
+
+//get transaction
+router.get('/:id', getTransaction);
 
 //get all transactions
 router.get('/', getAllTransactions);

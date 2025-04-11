@@ -88,7 +88,7 @@ categorySchema.statics.getCategory = async function (id: ObjectId) {
     throw new Error('categoryid not provided');
   }
 
-  const category = await this.findById(id);
+  const category = await this.findById(id).populate('userId', '_id username');
 
   return category;
 };
