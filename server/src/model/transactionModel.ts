@@ -56,7 +56,7 @@ transactionSchema.statics.createTransaction = async function (
   }
   if (
     !validator.isCurrency(amount, {
-      allow_negative: false,
+      allow_negatives: false,
       thousand_separator: '.',
       decimal_separator: ',',
       //   symbol: '',

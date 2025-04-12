@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { BudgetAccountRequestType } from 'src/types';
 
-const BudgetAccount = require('../model/budgetAccount');
+const BudgetAccount = require('../model/budgetAccountModel');
 
 //controller to create a new budgetAccount
 
