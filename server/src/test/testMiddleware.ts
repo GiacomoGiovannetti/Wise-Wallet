@@ -1,4 +1,5 @@
 import { Model } from 'mongoose';
+const bcrypt = require('bcrypt');
 
 interface TransactionModel {
   userId: string;
@@ -42,11 +43,13 @@ exports.createDummyData = async (
 };
 
 exports.createDummyUser = async (model: Model<UserModel>) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash('prova123!', salt);
+
   const dummyUser = new model({
     username: 'UserTest',
     email: 'user@test.it',
-    password: 'prova123',
-    confirmPassword: 'prova123',
+    password: hashedPassword,
   });
 
   const response = await dummyUser.save();

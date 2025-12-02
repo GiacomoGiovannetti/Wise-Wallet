@@ -39,7 +39,7 @@ exports.signUpUser = async (req: Request, res: Response) => {
     //create token
     const token = createToken(user._id);
 
-    res.status(StatusCodes.OK).json({ email, token });
+    res.status(StatusCodes.CREATED).json({ email, token });
   } catch (error: any) {
     console.error(error);
     res.status(StatusCodes.BAD_REQUEST).json({ error: error.message });

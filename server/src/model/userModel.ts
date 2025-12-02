@@ -35,14 +35,9 @@ userSchema.statics.signup = async function (
   if (!username || !email || !password || !confirmPassword) {
     throw new Error('All fields must be filled');
   }
-  if (
-    !validator.matches(
-      username,
-      /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$]+$/
-    )
-  ) {
+  if (!validator.matches(username, /^[a-zA-Z0-9._-]*$/)) {
     throw new Error(
-      'Username can contain only letters, numbers and special characters'
+      'Username can contain only letters, numbers and special characters(.-_)'
     );
   }
   if (!validator.isEmail(email)) {
@@ -58,7 +53,8 @@ userSchema.statics.signup = async function (
   const userExists = await this.findOne({ username });
 
   if (userExists) {
-    throw new Error('this username is already in use');
+    console.log('userExists ? ', !!userExists);
+    throw new Error('This username is already in use');
   }
 
   const emailExists = await this.findOne({ email });
@@ -76,6 +72,7 @@ userSchema.statics.signup = async function (
 
 //static login method
 userSchema.statics.login = async function (email: string, password: string) {
+  console.log('CREDENTIALS', email, password);
   //validation
   if (!email || !password) {
     throw new Error('All fields must be filled');
