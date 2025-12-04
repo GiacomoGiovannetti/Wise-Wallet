@@ -80,7 +80,7 @@ exports.createDummyTransaction = async (
 exports.replaceFirstCharId = (testId: string) => {
   try {
     const firstChar = testId.charAt(0);
-    const charsRegex = /^a-zA-Z$/;
+    const charsRegex = /^[a-zA-Z]$/;
     let modifiedTestId;
     if (charsRegex.test(firstChar)) {
       modifiedTestId = testId.replace(firstChar, '1');
@@ -88,7 +88,10 @@ exports.replaceFirstCharId = (testId: string) => {
       modifiedTestId = testId.replace(firstChar, 'a');
     }
     return modifiedTestId;
-  } catch (error) {
+  } catch (error: any) {
     console.log('error', error);
+    throw new Error(
+      `Failed to replace char in ID: ${testId}. Error: ${error.message}`
+    );
   }
 };

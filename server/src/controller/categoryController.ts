@@ -22,10 +22,10 @@ export const createCategory = async (
         createdAt: createdCategory.createdAt,
       },
     });
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        error: error.message,
       });
   }
 };
@@ -64,10 +64,10 @@ export const modifyCategory = async (
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      message: err.message,
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({
+      error: error.message,
     });
   }
 };
@@ -94,11 +94,11 @@ export const deleteCategory = async (req: Request, res: Response) => {
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err);
+  } catch (error: any) {
+    console.error(error);
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+      .json({ error: error.message });
   }
 };
 
@@ -115,11 +115,11 @@ export const getCategory = async (req: Request, res: Response) => {
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err);
+  } catch (error: any) {
+    console.error(error);
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+      .json({ error: error.message });
   }
 };
 
@@ -130,17 +130,17 @@ export const getAllCategories = async (req: Request, res: Response) => {
     if (categories.length <= 0) {
       res
         .status(StatusCodes.NOT_FOUND)
-        .json({ message: 'No valid resource for specified ID' });
+        .json({ message: 'No valid resources for specified ID' });
     } else {
       res.status(StatusCodes.OK).json({
         count: categories.length,
         categories: categories,
       });
     }
-  } catch (err: any) {
-    console.error(err);
+  } catch (error: any) {
+    console.error(error);
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+      .json({ error: error.message });
   }
 };

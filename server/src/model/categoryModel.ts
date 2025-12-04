@@ -54,8 +54,8 @@ categorySchema.statics.modifyCategory = async function (
   if (!name) {
     throw new Error('name not provided');
   }
-  if (!userId || !id) {
-    throw new Error('userId or categoryId not provided');
+  if (!userId) {
+    throw new Error('userId not provided');
   }
   if (!validator.isAlphanumeric(name)) {
     throw new Error('name can only contain alphanumeric values');
@@ -64,6 +64,10 @@ categorySchema.statics.modifyCategory = async function (
   const category = await this.findByIdAndUpdate(id, {
     $set: { name: name, updatedAt: new Date() },
   });
+
+  if (!category) {
+    return null;
+  }
 
   const updatedCategory = await this.findById(id);
   return { category, updatedCategory };
@@ -77,6 +81,10 @@ categorySchema.statics.deleteCategory = async function (id: ObjectId) {
   }
 
   const category = await this.findByIdAndDelete(id);
+
+  if (!category) {
+    return null;
+  }
 
   return category;
 };
