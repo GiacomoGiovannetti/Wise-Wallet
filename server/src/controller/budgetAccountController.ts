@@ -30,10 +30,10 @@ export const createBudgetAccount = async (
         createdAt: createdBudgetAccount.createdAt,
       },
     });
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        message: error.message,
       });
   }
 };
@@ -82,10 +82,10 @@ export const modifyBudgetAccount = async (
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        message: error.message,
       });
   }
 };
@@ -119,10 +119,10 @@ export const deleteBudgetAccount = async (
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        message: error.message,
       });
   }
 };
@@ -147,7 +147,7 @@ export const getBudgetAccount = async (
           currency: budgetAccount?.currency,
           userId: budgetAccount.userId,
           createdAt: budgetAccount.createdAt,
-          updatedAt: budgetAccount.updatedAt,
+          updatedAt: budgetAccount?.updatedAt,
         },
       });
     } else {
@@ -155,10 +155,10 @@ export const getBudgetAccount = async (
         message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        message: error.message,
       });
   }
 };
@@ -173,7 +173,7 @@ export const getAllBudgetAccounts = async (req: Request, res: Response) => {
 
     if (budgetAccounts.length <= 0) {
       res.status(StatusCodes.NOT_FOUND).json({
-        message: 'No valid resource for specified ID',
+        message: 'No valid resources for specified ID',
       });
     } else {
       res.status(StatusCodes.OK).json({
@@ -181,10 +181,10 @@ export const getAllBudgetAccounts = async (req: Request, res: Response) => {
         budgetAccounts: budgetAccounts,
       });
     }
-  } catch (err: any) {
-    console.error(err),
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: err.message,
+  } catch (error: any) {
+    console.error(error),
+      res.status(StatusCodes.BAD_REQUEST).json({
+        message: error.message,
       });
   }
 };

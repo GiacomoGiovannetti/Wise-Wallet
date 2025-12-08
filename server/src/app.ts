@@ -36,5 +36,5 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/user', userRouter);
 app.use('/api/transaction', transactionRouter);
 app.use('/api/category', categoryRouter);
-app.use('/api/budgetAccount', budgetAccountRouter);
+app.use('/api/budget-account', budgetAccountRouter);
 module.exports = app;

@@ -90,6 +90,10 @@ budgetAccountSchema.statics.modifyBudgetAccount = async function (
     },
   });
 
+  if (!budgetAccount) {
+    return null;
+  }
+
   const updatedBudgetAccount = await this.findById(id);
 
   return { budgetAccount, updatedBudgetAccount };

@@ -238,7 +238,7 @@ describe('Category request', () => {
         });
       });
       describe('if userId is not provided', () => {
-        it('should responde with a 200 status code and a json object containing a message', async () => {
+        it('should responde with a 404 status code and a json object containing a message', async () => {
           const response = await request(app).get('/api/category').query({
             userId: 'a73ce872b8c3a4b5d6dfdc88',
           });
