@@ -33,10 +33,10 @@ export const createTransaction = async (
         createdAt: createdTransaction.createdAt,
       },
     });
-  } catch (err: any) {
-    console.error(err);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      message: err.message,
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({
+      message: error.message,
     });
   }
 };
@@ -72,7 +72,6 @@ export const modifyTransaction = async (
           userId: modifiedTransaction.transaction.userId,
           categoryId: modifiedTransaction.transaction.categoryId,
           createdAt: modifiedTransaction.transaction.createdAt,
-          updatedAt: modifiedTransaction.transaction.updatedAt,
         },
         updatedTransaction: {
           _id: modifiedTransaction.updatedTransaction._id,
@@ -89,13 +88,13 @@ export const modifyTransaction = async (
       });
     } else {
       res.status(StatusCodes.NOT_FOUND).json({
-        message: 'No valid resource for specified id',
+        message: 'No valid resource for specified ID',
       });
     }
-  } catch (err: any) {
-    console.error(err);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      message: err.message,
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({
+      message: error.message,
     });
   }
 };
@@ -106,8 +105,8 @@ export const deleteTransaction = async (req: Request, res: Response) => {
     const deletedTransaction = await Transaction.deleteTransaction(id);
     if (deletedTransaction) {
       res.status(StatusCodes.OK).json({
-        message: 'Course has been deleted successfully',
-        deletedCourse: {
+        message: 'Transaction has been deleted successfully',
+        deletedTransaction: {
           _id: deletedTransaction._id,
           transactionType: deletedTransaction.transactionType,
           amount: deletedTransaction.amount,
@@ -124,11 +123,9 @@ export const deleteTransaction = async (req: Request, res: Response) => {
         .status(StatusCodes.NOT_FOUND)
         .json({ message: 'No valid resource for specified ID' });
     }
-  } catch (err: any) {
-    console.error(err);
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({ message: error.message });
   }
 };
 
@@ -156,11 +153,9 @@ export const getTransaction = async (req: Request, res: Response) => {
         .status(StatusCodes.NOT_FOUND)
         .json({ message: 'No valid resource for specified ID' });
     }
-  } catch (err: any) {
-    console.error(err);
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({ message: error.message });
   }
 };
 
@@ -172,17 +167,15 @@ export const getAllTransactions = async (req: Request, res: Response) => {
     if (transactions.length <= 0) {
       res
         .status(StatusCodes.NOT_FOUND)
-        .json({ message: 'No valid resource for specified ID' });
+        .json({ message: 'No valid resources for specified ID' });
     } else {
       res.status(StatusCodes.OK).json({
         count: transactions.length,
         transactions: transactions,
       });
     }
-  } catch (err: any) {
-    console.error(err);
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: err.message });
+  } catch (error: any) {
+    console.error(error);
+    res.status(StatusCodes.BAD_REQUEST).json({ message: error.message });
   }
 };

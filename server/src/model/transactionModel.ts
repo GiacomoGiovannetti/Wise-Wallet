@@ -87,15 +87,17 @@ transactionSchema.statics.modifyTransaction = async function (
   categoryId: string
 ) {
   //validation
-  if (!transactionType || !amount || !date) {
-    throw new Error('All fields must be filled');
+  //check if at least on field is present
+  if (!transactionType && !amount && !date && !description) {
+    throw new Error('At least one field must be present');
   }
+
   if (!userId || !categoryId) {
-    throw new Error('userId, categoryId or transactionId not provided');
+    throw new Error('userId or categoryId not provided');
   }
   if (
     !validator.isCurrency(amount, {
-      allow_negative: false,
+      allow_negatives: false,
       thousand_separator: '.',
       decimal_separator: ',',
       //   symbol: '',
@@ -114,6 +116,10 @@ transactionSchema.statics.modifyTransaction = async function (
       updatedAt: new Date(),
     },
   });
+
+  if (!transaction) {
+    return null;
+  }
 
   const updatedTransaction = await this.findById(id);
   return { transaction, updatedTransaction };
